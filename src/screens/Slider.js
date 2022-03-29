@@ -19,10 +19,51 @@ import {
 import AppIntroSlider from 'react-native-app-intro-slider';
 import { TouchableOpacity } from 'react-native-gesture-handler';
 
+const renderNextButton = () => {
+  return (
+    <>
+      <View>
+        <Text style={{ fontSize: 15 }}>
+          Next
+        </Text>
+      </View>
+    </>
+  );
+}
+
+const renderDoneButton = () => {
+  return (
+    <>
+    <TouchableOpacity onPress={()=>  props.navigation.navigate("login") } >
+      <View style={{backgroundColor:'yellow'}}>
+        <Text style={{ fontSize: 15 , backgroundColor:'yello'}}>
+          Done
+        </Text>
+      </View>
+      </TouchableOpacity>
+    </>
+  );
+}
 
 
 
 const SliderScreen = (props) => {
+
+
+  const renderDoneButton = () => {
+    return (
+      <>
+      <TouchableOpacity onPress={onDone} >
+        <View style={{backgroundColor:'yellow'}}>
+          <Text style={{ fontSize: 15 , backgroundColor:'yello'}}>
+            Done
+          </Text>
+        </View>
+        </TouchableOpacity>
+      </>
+    );
+  }
+
   const [showRealApp, setShowRealApp] = useState(false);
 
   const onDone = () => {
@@ -91,9 +132,12 @@ const SliderScreen = (props) => {
           
           data={slides}
           renderItem={RenderItem}
-          onDone={onDone}
+         onDone={onDone}
           showSkipButton={true}
           onSkip={onSkip}
+          renderNextButton={renderNextButton}
+          renderDoneButton={renderDoneButton}
+          
           
         />
         
