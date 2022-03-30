@@ -126,16 +126,16 @@ function DateTimeCard() {
                     <View style={styles.flex1}>
                         <MaterialIcons style={{ marginLeft: -45, marginTop: 15 }} name='expand-more' size={hp('3%')} color="white" />
 
-                        <MaterialIcons style={{ marginLeft: -45, marginBottom: 40 }} name='expand-more' size={hp('3%')} color="white" />
+                        {/* <MaterialIcons style={{ marginLeft: -45, marginBottom: 40 }} name='expand-more' size={hp('3%')} color="white" /> */}
                     </View>
                     <View style={styles.flex3}>
                         <TouchableOpacity onPress={() => checkedd ? setCheckedd(false) : setCheckedd(true)}
                             style={{ margin: 3, marginRight: 1, marginTop: 6, height: moderateScale(35), width: moderateScale(35), borderRadius: moderateScale(20), backgroundColor: checkedd ? '#00B712' : 'white', borderWidth: 5.2, borderColor: 'white' }} >
 
                         </TouchableOpacity>
-                        <MaterialIcons style={{ marginLeft: 15, marginBottom: 0 }} name='mode-edit' size={hp('3%')} color="white" />
+                        {/* <MaterialIcons style={{ marginLeft: 15, marginBottom: 0 }} name='mode-edit' size={hp('3%')} color="white" />
 
-                        <MaterialIcons style={{ marginLeft: 15, marginBottom: 25 }} name='delete-outline' size={hp('3%')} color="white" />
+                        <MaterialIcons style={{ marginLeft: 15, marginBottom: 25 }} name='delete-outline' size={hp('3%')} color="white" /> */}
                     </View>
                 </LinearGradient>
 
@@ -164,16 +164,16 @@ function DateTimeCard() {
                     <View style={styles.flex1}>
                         <MaterialIcons style={{ marginLeft: -45, marginTop: 15 }} name='expand-more' size={hp('3%')} color="white" />
 
-                        <MaterialIcons style={{ marginLeft: -45, marginBottom: 40 }} name='expand-more' size={hp('3%')} color="white" />
+                        {/* <MaterialIcons style={{ marginLeft: -45, marginBottom: 40 }} name='expand-more' size={hp('3%')} color="white" /> */}
                     </View>
                     <View style={styles.flex3}>
                         <TouchableOpacity onPress={() => checkedd ? setCheckedd(false) : setCheckedd(true)}
                             style={{ margin: 3, marginRight: 1, marginTop: 6, height: moderateScale(35), width: moderateScale(35), borderRadius: moderateScale(20), backgroundColor: checkedd ? '#00B712' : 'white', borderWidth: 5.2, borderColor: 'white' }} >
 
                         </TouchableOpacity>
-                        <MaterialIcons style={{ marginLeft: 15, marginBottom: 0 }} name='mode-edit' size={hp('3%')} color="white" />
+                        {/* <MaterialIcons style={{ marginLeft: 15, marginBottom: 0 }} name='mode-edit' size={hp('3%')} color="white" />
 
-                        <MaterialIcons style={{ marginLeft: 15, marginBottom: 25 }} name='delete-outline' size={hp('3%')} color="white" />
+                        <MaterialIcons style={{ marginLeft: 15, marginBottom: 25 }} name='delete-outline' size={hp('3%')} color="white" /> */}
                     </View>
                 </LinearGradient>
 

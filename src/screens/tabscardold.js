@@ -588,6 +588,7 @@ function TabC() {
                                 </View>
                             </View>
                         </TouchableOpacity>
+                        <View style={{height:1,width:270, borderColor:'white', borderWidth:.2, borderRadius:.1 ,marginVertical:5, alignSelf:'center'}}></View>
                         <TouchableOpacity onPress={() => checked ? setChecked(false) : setChecked(true)}>
                             <View style={styles.placeView2}>
 

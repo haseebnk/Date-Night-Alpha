@@ -48,49 +48,49 @@ const Pings = [
     {
         id: "Item 1",
         type: "unlock",
-        text: "selfie challenge",
-        Description: "Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum.hello  hi Lorem Ipsum Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industrys standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book.It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged.It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum",
+        text: "Selfie challenge",
+        Description: "Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum.",
         selected: true,
     },
     {
         id: "Item 1",
         type: "unlock",
-        text: "Compliment Your date",
-        Description: "Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum. and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum",
+        text: " Compliment your date ",
+        Description: "Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum.",
         selected: true,
     },
     {
         id: "Item 2",
         type: "unlock",
-        text: "selfie challenge",
+        text: "Truth and dare",
         Description: "Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum.",
         selected: false,
     },
     {
         id: "Item 1",
         type: "unlock",
-        text: "Compliment Your date",
-        Description: "Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum. and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum",
+        text: " Compliment your date ",
+        Description: "Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum.",
         selected: false,
     },
     {
         id: "Item 2",
         type: "lock",
-        text: "selfie challenge",
+        text: " Compliment your date ",
         Description: "Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum.",
         selected: false,
     },
     {
         id: "Item 1",
         type: "lock",
-        text: "Compliment Your date",
+        text: " Compliment your date ",
         Description: "Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum.",
         selected: false,
     },
     {
         id: "Item 2",
         type: "lock",
-        text: "Compliment Your date",
+        text: " Compliment your date ",
         Description: "Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum.",
         selected: false,
     },
@@ -339,7 +339,7 @@ export default function DateMode(props) {
                         <View style={styles.ping}
 
                         >
-                            <View style={{ alignSelf: 'center' , }}>
+                            <View style={{ alignSelf: 'center', }}>
 
                                 <Text style={styles.secondText}>{Pings[0].text}</Text>
 
@@ -354,26 +354,18 @@ export default function DateMode(props) {
                         Are You Ready?
                     </Text>
 
-                   
-                        <View style={styles.InnerContainer}>
+
+                    <View style={styles.InnerContainer}>
                         <ScrollView nestedScrollEnabled={true}>
                             <Text style={styles.dareText}>
                                 {Pings[0].Description}
                             </Text>
                         </ScrollView>
-                        </View>
-                    
+                    </View>
+
 
 
                 </View>
-                <ScrollView horizontal={true}>
-
-                    {
-                        rendenPing()
-                    }
-
-                </ScrollView>
-
                 <Modal
 
                     transparent={true}
@@ -413,6 +405,15 @@ export default function DateMode(props) {
 
                 </Modal>
 
+                <ScrollView nestedScrollEnabled={true} horizontal={true}>
+
+                    {
+                        rendenPing()
+                    }
+
+                </ScrollView>
+
+
                 <View style={styles.BottomHeader}>
                     <TouchableOpacity onPress={() => props.navigation.navigate('faqscreen')}>
                         <Text style={{ fontSize: 23, color: "white", alignSelf: "flex-start", margin: 20, fontFamily: "Poppins-Regular", marginLeft: 25, top: -5, }}> FAQ</Text>
@@ -434,17 +435,17 @@ export default function DateMode(props) {
                         </TouchableOpacity>
 
                         {
-                            PauseActive==false
-                            ?
+                            PauseActive == false
+                                ?
                                 <TouchableOpacity onPress={onPause}>
 
-                                    <MaterialIcons  style={{ margin: 10 ,}} name='play-arrow' size={hp('5%')} color="#74FF82" />
+                                    <MaterialIcons style={{ margin: 10, }} name='play-arrow' size={hp('5%')} color="#74FF82" />
 
                                 </TouchableOpacity>
                                 :
                                 <TouchableOpacity onPress={onPause2}  >
 
-                                    <MaterialIcons style={{ margin: 10,  }} name='pause' size={hp('5%')} color="yellow" />
+                                    <MaterialIcons style={{ margin: 10, }} name='pause' size={hp('5%')} color="yellow" />
 
                                 </TouchableOpacity>
                         }
@@ -568,7 +569,7 @@ const styles = StyleSheet.create({
     modalButtons3: {
         flexDirection: 'row',
         justifyContent: 'space-between',
-        
+
 
 
 
@@ -803,7 +804,7 @@ const styles = StyleSheet.create({
         fontFamily: "Poppins-Regular",
         alignSelf: 'center',
         color: '#74FF82',
-       
+
         marginBottom: 10
 
     },
@@ -812,7 +813,7 @@ const styles = StyleSheet.create({
         fontFamily: "Poppins-SemiBold",
         alignSelf: 'center',
         color: '#74FF82',
-      
+
         justifyContent: 'center',
         textAlign: 'center'
 
@@ -823,7 +824,7 @@ const styles = StyleSheet.create({
         fontFamily: "Poppins-Regular",
         alignSelf: 'center',
         color: '#74FF82',
-      marginTop:20
+        marginTop: 20
 
     },
     count: {

@@ -24,12 +24,13 @@ const windowHeight = Dimensions.get('window').height;
 export default function DoneForNow(props) {
 
     return (
-        <ScrollView>
+       
             <LinearGradient
                 colors={['#24202f', '#24202f', '#24202f']}
                 style={styles.container}
             >
-                <View style={{ height: 740 , marginTop:40,}}>
+                 <ScrollView>
+                <View style={{  }}>
                     <View>
 
 
@@ -46,7 +47,7 @@ export default function DoneForNow(props) {
                         <Text style={styles.YouAre}>You're all set!</Text>
                         <Text style={styles.YourDate}>Your date is all planned out! We’ll send you a reminder 30 minutes before its time for your date to start.</Text>
                     </View>
-                    <View style={{marginTop:80}}>
+                    <View style={{marginTop:40}}>
 
                         <TouchableOpacity onPress={() => props.navigation.navigate("home")}>
                             <LinearGradient start={{ x: 0, y: 0 }} end={{ x: 1, y: 0 }}
@@ -71,8 +72,9 @@ export default function DoneForNow(props) {
                     </View>
 
                 </View>
+                </ScrollView>
             </LinearGradient>
-        </ScrollView>
+       
     )
 }
 
@@ -83,14 +85,14 @@ const styles = StyleSheet.create({
         fontFamily: "Poppins-Regular",
         color: '#E71717',
         alignSelf: 'center',
-        top: 6
+        marginTop: 6
     },
     saveButtonText: {
         fontSize: 16,
         fontFamily: "Poppins-Regular",
         color: '#fafafa',
         alignSelf: 'center',
-        top: 6,
+        marginTop: 6,
 
 
     },
@@ -98,10 +100,10 @@ const styles = StyleSheet.create({
 
         marginTop: 26,
 
-        width: 320,
+        width: 300,
         paddingVertical: 12,
         borderRadius: 11,
-        marginTop: 20,
+       
         alignSelf: 'center',
         height: moderateScale(60),
     },
@@ -109,29 +111,31 @@ const styles = StyleSheet.create({
         alignSelf: "center",
         fontSize: 14,
         color: "#B7B7B7",
-        fontFamily: 'Poppins-Regular',
-        top: 50,
+        fontFamily: 'Poppins-ExtraLight',
+       marginHorizontal:30,
         textAlign: "center",
-        margin: 20,
-        marginBottom: 60
+     
+       
     },
     YouAre: {
         alignSelf: "center",
         fontSize: 40,
         color: "white",
         fontFamily: 'Poppins-SemiBold',
-        top: 70,
+        marginTop: 30,
     },
     winePic: {
-        top: 30,
+        marginTop: 30,
         height: moderateScale(131.79),
         width: 85.03,
-        alignSelf: "center"
+        alignSelf: "center",
+        resizeMode:'contain'
     },
 
     imgLogo: {
-        height: moderateScale(85),
-        width: 104,
+        marginTop:30,
+        height: moderateScale(105),
+        width: 124,
         alignSelf: "center"
     },
     container: {

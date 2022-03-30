@@ -19,6 +19,7 @@ import * as Animatable from 'react-native-animatable';
 
 export default function Splashing(props) {
 
+  
 
   useEffect(() => {
     setTimeout(() => props.navigation.navigate("slider") , 2000);
@@ -26,13 +27,13 @@ export default function Splashing(props) {
 
 
   return (
-    <TouchableWithoutFeedback  style={styles.container}>
+    <TouchableWithoutFeedback >
       <View style={styles.container}>
-        <Animatable.Text style={styles.welcome} animation="slideInDown" delay={1000} iterationCount={1} direction="alternate">welcome to</Animatable.Text>
-        <Animatable.Text style={styles.datenight} animation="slideInDown" delay={1000} iterationCount={1} direction="alternate">Date Night</Animatable.Text>
-        <Animatable.Text style={styles.datingText} animation="slideInDown" delay={1000} iterationCount={1} direction="alternate">Dating just got fun again!</Animatable.Text>
+        <Animatable.Text style={styles.welcome} animation="slideInDown"  iterationCount={1} direction="alternate">welcome to</Animatable.Text>
+        <Animatable.Text style={styles.datenight} animation="slideInDown"  iterationCount={1} direction="alternate">Date Night</Animatable.Text>
+        <Animatable.Text style={styles.datingText} animation="slideInDown"  iterationCount={1} direction="alternate">Dating just got fun again!</Animatable.Text>
 
-        <Animatable.Image  style={styles.img} animation="zoomIn"  source={require('../assets/imglogo.png')}
+        <Animatable.Image  style={styles.img} delay={-1000} animation="zoomIn"  source={require('../assets/imglogo.png')}
         >
           {/* <Image
             style={styles.tinyLogo}
@@ -40,8 +41,10 @@ export default function Splashing(props) {
           /> */}
         </Animatable.Image>
 
-        <Animatable.Text style={styles.getStarted} animation="slideInUp" delay={1000} iterationCount={1} direction="alternate">Get started in just</Animatable.Text>
-        <Animatable.Text style={styles.steps} animation="slideInUp" delay={1000} iterationCount={1} direction="alternate">4 simple steps...</Animatable.Text>
+        <Animatable.Text style={styles.getStarted} animation="slideInUp" iterationCount={1} direction="alternate">Get started in just</Animatable.Text>
+        <Animatable.Text style={styles.steps} animation="slideInUp"  iterationCount={1} direction="alternate"><Text style={{ color: 'red',
+    fontSize: 25,
+    fontFamily: 'Poppins',}}>4</Text> simple steps...</Animatable.Text>
       </View>
 
     </TouchableWithoutFeedback>
@@ -51,11 +54,12 @@ export default function Splashing(props) {
 
 const styles = StyleSheet.create({
   img: {
-    width: 200,
-    height: 200,
+    width: 150,
+    height: 150,
     marginTop: 100,
     marginBottom:100,
     alignSelf: "center",
+    resizeMode:'contain'
 
   },
   steps: {
@@ -83,6 +87,8 @@ const styles = StyleSheet.create({
   container: {
     flex: 1,
     backgroundColor: "black",
+    paddingBottom:40,
+    paddingTop:40
 
   },
   welcome: {

@@ -1,9 +1,23 @@
 import React, { useState, useEffect } from 'react';
-import { View, Text, FlatList, TouchableOpacity, StyleSheet, Image, Animated ,Modal } from 'react-native';
+import { View, Text, FlatList, TouchableOpacity, StyleSheet, Image, Animated ,Modal , LayoutAnimation,
+    Platform,
+    UIManager, } from 'react-native';
 import { widthPercentageToDP as wp, heightPercentageToDP as hp } from 'react-native-responsive-screen';
 import MaterialIcons from 'react-native-vector-icons/MaterialIcons';
 import LinearGradient from 'react-native-linear-gradient';
 import * as Animatable from 'react-native-animatable';
+
+
+
+if (Platform.OS === 'android') {
+    if (UIManager.setLayoutAnimationEnabledExperimental) {
+        UIManager.setLayoutAnimationEnabledExperimental(true);
+    }
+}
+const inActiveColor = 'white';
+const activeColor = '#00B712';
+
+
 
 const data = [
     { id: 1, title: 'FAQ1', description: 'It may, or may not be an actual "first" date, but its certainly one of the first... a "get-to-know" Kind of date. Youll need ice-breakers. ' },
@@ -56,11 +70,11 @@ const FAQScreen = (props) => {
                         style={{ width: '90%' }}
                         renderItem={({ item, index }) => (
                             <TouchableOpacity
-                                onPress={() => questionPick(item)}
+                                onPress={() =>   {LayoutAnimation.easeInEaseOut(); questionPick(item)} }
                                 style={{ marginTop: 20, width: '100%', padding: 3 }}
                             >
                                 {press === item.id ?
-                                    <TouchableOpacity onPress={() => setPress('')} >
+                                    <TouchableOpacity onPress={() =>  {LayoutAnimation.easeInEaseOut();  setPress('')} } >
                                     <View style={{ flexDirection: 'row', alignItems: 'center', backgroundColor: '#363143', paddingHorizontal: 10, paddingVertical: 10, height: 76, borderRadius: 18, color: "White" }}>
                                         <MaterialIcons name='expand-less' size={hp('5%')} color="white" />
                                         <Text style={{ color: 'white', fontFamily: "Poppins-Regular", fontSize: 16 }}>{item.title}</Text>
@@ -82,7 +96,7 @@ const FAQScreen = (props) => {
 
                                 {press === item.id ?
 
-                                    <TouchableOpacity onPress={() => setPress('')}>
+                                    <TouchableOpacity onPress={() =>  {LayoutAnimation.easeInEaseOut(); setPress('')} } >
 
                                         <Text style={{ padding: 15, marginHorizontal: 0, top: -10, backgroundColor: "white", color: "#B4B4B4", borderBottomLeftRadius: 18, borderBottomRightRadius: 18, fontSize: 14, fontFamily: "Poppins-Regular", }}>{item.description} </Text>
 

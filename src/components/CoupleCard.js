@@ -203,7 +203,7 @@ const styles = StyleSheet.create({
         backgroundColor: '#F11775',
         height: moderateScale(185),
         width: moderateScale(324),
-        marginVertical: 35,
+        marginVertical: 45,
         marginHorizontal: 10,
         flexDirection: "row",
         borderRadius: moderateScale(18),

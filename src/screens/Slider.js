@@ -18,32 +18,37 @@ import {
 //import AppIntroSlider to use it
 import AppIntroSlider from 'react-native-app-intro-slider';
 import { TouchableOpacity } from 'react-native-gesture-handler';
+import LinearGradient from 'react-native-linear-gradient';
 
 const renderNextButton = () => {
   return (
     <>
-      <View>
-        <Text style={{ fontSize: 15 }}>
+      <LinearGradient 
+      start={{ x: 0, y: 0 }} end={{ x: 1, y: 0 }}
+      colors={['#FF7474', '#E20303']}
+      style={{borderRadius:12 , marginTop:-30 }}
+      >
+        <Text style={{textAlign:'center',fontSize: 16, fontFamily:'Poppins-Regular' , width:133, height:50 , paddingTop:12 , color:'white',}}>
           Next
         </Text>
-      </View>
+      </LinearGradient>
     </>
   );
 }
 
-const renderDoneButton = () => {
-  return (
-    <>
-    <TouchableOpacity onPress={()=>  props.navigation.navigate("login") } >
-      <View style={{backgroundColor:'yellow'}}>
-        <Text style={{ fontSize: 15 , backgroundColor:'yello'}}>
-          Done
-        </Text>
-      </View>
-      </TouchableOpacity>
-    </>
-  );
-}
+// const renderDoneButton = () => {
+//   return (
+//     <>
+//     <TouchableOpacity onPress={()=>  props.navigation.navigate("login") } >
+//       <View style={{backgroundColor:'yellow'}}>
+//         <Text style={{ fontSize: 15 , backgroundColor:'yello'}}>
+//           Done
+//         </Text>
+//       </View>
+//       </TouchableOpacity>
+//     </>
+//   );
+// }
 
 
 
@@ -53,14 +58,26 @@ const SliderScreen = (props) => {
   const renderDoneButton = () => {
     return (
       <>
-      <TouchableOpacity onPress={onDone} >
-        <View style={{backgroundColor:'yellow'}}>
-          <Text style={{ fontSize: 15 , backgroundColor:'yello'}}>
-            Done
-          </Text>
-        </View>
-        </TouchableOpacity>
+     <LinearGradient 
+      start={{ x: 0, y: 0 }} end={{ x: 1, y: 0 }}
+      colors={['#FF7474', '#E20303']}
+      style={{borderRadius:12 ,  marginTop:-30 }}
+      >
+        <Text style={{textAlign:'center',fontSize: 16, fontFamily:'Poppins-Regular' , width:133, height:50 , paddingTop:12 , color:'white',}}>
+          Finish
+        </Text>
+      </LinearGradient>
       </>
+    );
+  }
+
+
+
+  const renderSkipButton =(props)=>{
+    return (
+    <>
+    <Text style={{ marginTop:-30, paddingTop:12, marginLeft:25 ,textAlign:'center',fontSize: 16, fontFamily:'Poppins-Regular' , color:'white' }} >Skip</Text>
+    </>
     );
   }
 
@@ -85,7 +102,7 @@ const SliderScreen = (props) => {
           paddingBottom: 150,
         }}>
           <Image
-          style={{ height: 150, width:152 , resizeMode:'contain'}}
+          style={{ height: 123.49, width:123 , resizeMode:'contain'}}
           source={(require("../assets/imglogo.png"))} ></Image>
         <Text style={styles.introTitleStyle}>
           {item.title}
@@ -124,12 +141,12 @@ const SliderScreen = (props) => {
       ) : (
         <AppIntroSlider
       
-            activeDotStyle={{ backgroundColor:'#FF2B25' , marginBottom:100}}
-            dotStyle={{ backgroundColor: '#3B3B3B', marginBottom: 100}}
+            activeDotStyle={{ backgroundColor:'#FF2B25' , marginBottom:240}}
+            dotStyle={{ backgroundColor: '#3B3B3B', marginBottom: 240}}
           
           nextLabel='Next' 
 
-          
+        
           data={slides}
           renderItem={RenderItem}
          onDone={onDone}
@@ -137,7 +154,7 @@ const SliderScreen = (props) => {
           onSkip={onSkip}
           renderNextButton={renderNextButton}
           renderDoneButton={renderDoneButton}
-          
+          renderSkipButton={renderSkipButton}
           
         />
         
@@ -168,8 +185,8 @@ const styles = StyleSheet.create({
     fontSize: 16,
   },
   introImageStyle: {
-    width: 200 ,
-    height: 200,
+    width: 205 ,
+    height: 176,
     resizeMode: 'contain',
     
   },
@@ -177,9 +194,9 @@ const styles = StyleSheet.create({
     fontSize: 24,
     color: 'white',
     textAlign: 'center',
-    paddingVertical: 30,
+    paddingVertical: 60,
     marginBottom:20,
-    fontFamily:"Poppins-Regular",
+    fontFamily:"Poppins-Light",
     top:-20,
     
   },
@@ -189,7 +206,7 @@ const styles = StyleSheet.create({
     textAlign: 'center',
     marginBottom: 16,
   
-    fontFamily:"Poppins-ExtraBold"
+    fontFamily:"Poppins-Light"
  
   },
  

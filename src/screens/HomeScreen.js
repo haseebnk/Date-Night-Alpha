@@ -19,6 +19,7 @@ import {
     LayoutAnimation,
     Platform,
     UIManager,
+    TouchableHighlight
 
 
 } from 'react-native';
@@ -47,6 +48,7 @@ import { sortBy } from 'lodash';
 
 import Geolocation from 'react-native-geolocation-service';
 import { GooglePlacesAutocomplete } from 'react-native-google-places-autocomplete';
+
 
 
 if (Platform.OS === 'android') {
@@ -160,24 +162,28 @@ const PreData = [
 const data = [
     {
         id: 1,
+        color: ['#80D3FC', '#80D3FC',],
         title: 'First Date Mode',
         description:
             'It may, or may not be an actual "first" date, but its certainly one of the first...a "get-to-know" Kind of date.You will need ice-breakers. ',
     },
     {
         id: 2,
+        color: ['#44BEFB', '#44BEFB', ],
         title: 'Casual Date Mode',
         description:
             'It may, or may not be an actual "first" date, but its certainly one of the first...a "get-to-know" Kind of date.You will need ice-breakers. ',
     },
     {
         id: 3,
+        color: ['#0883FB', '#0883FB', ],
         title: 'Exclusive Date Mode',
         description:
             'It may, or may not be an actual "first" date, but its certainly one of the first...a "get-to-know" Kind of date.You will need ice-breakers. ',
     },
     {
         id: 4,
+        color: ['#0149FF', '#0149FF', ],
         title: 'Married Date Mode',
         description:
             'It may, or may not be an actual "first" date, but its certainly one of the first...a "get-to-know" Kind of date.You will need ice-breakers. ',
@@ -204,7 +210,7 @@ const Pings = [
     {
         id: "Item 2",
         type: "unlock",
-        text: " Compliment your date ",
+        text: "Truth and dare",
         Description: "Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum.",
         selected: false,
     },
@@ -244,6 +250,10 @@ const Pings = [
 const HomeScreen = (props) => {
 
 
+
+
+
+
     const [toggleActive, setToggle] = useState(false);
     //fahas faq
 
@@ -258,7 +268,13 @@ const HomeScreen = (props) => {
         setPress(item.id)
     }
 
-    //fahads
+    //modal
+
+
+    const xyz = (type) => {
+        console.log(type)
+        type == 'lock' ? setModalOpenn(true) : null
+    }
 
 
 
@@ -276,6 +292,7 @@ const HomeScreen = (props) => {
 
     const [mode, setMode] = useState('date');
     const [show, setShow] = useState(false);
+
 
     const onChange = (event, selectedDate) => {
         const currentDate = selectedDate || date;
@@ -451,6 +468,25 @@ const HomeScreen = (props) => {
 
 
     const rendenPing = () => {
+
+
+
+        const [myArray, setMyArray] = useState([]);
+
+        function onlclick() {
+
+
+
+
+            let myLocalArray = []
+            myLocalArray = Pings.splice(0, 1)
+            setMyArray(myLocalArray)
+            console.log(myLocalArray)
+            { Pings[0].type == 'lock' ? setModalOpenn(true) : null }
+        }
+
+
+
         return (
             Pings.map((v, i) => {
                 return (
@@ -460,7 +496,9 @@ const HomeScreen = (props) => {
                         <TouchableOpacity
 
 
-                            style={[, v.type == "unlock" && v.selected == true ? styles.PingPlayed : styles.PingUnlock && v.type == 'lock' ? styles.PingLock : styles.PingUnlock]}
+                            onPress={() => xyz(v.type)}
+
+                            style={v.type == "unlock" && v.selected == true ? styles.PingPlayed : styles.PingUnlock && v.type == 'lock' ? styles.PingLock : styles.PingUnlock}
                             type={Pings}
 
                         >
@@ -540,13 +578,58 @@ const HomeScreen = (props) => {
 
     //  animation = new Animated.Value(0);
     //  animation = new Animated.Value(menuToggled ? 0 : 1);
-
+    const [modalOpenn, setModalOpenn] = useState(false);
 
 
     return (
         <SafeAreaView style={{ flex: 1 }}>
             <View style={styles.container}>
                 <ScrollView>
+
+                    <Modal
+
+                        transparent={true}
+
+                        visible={modalOpenn}
+                        animationType='fade'
+
+
+                    >
+                        <View style={{
+                            flex: 1,
+                            justifyContent: "center",
+                            alignItems: "center",
+                            marginTop: -5,
+                            backgroundColor: '#000000e0',
+                        }} >
+                            <LinearGradient
+                                start={{ x: 0, y: 0 }} end={{ x: 1, y: 0 }}
+                                colors={['#FF7474', '#E20303']}
+                                style={styles.modalViewH}>
+                                <Text style={styles.modalText2}>This Ping is currently locked would you like to permanently unlocked it for just $0.99 ?</Text>
+
+                                <View style={styles.modalButtons2} >
+                                    <Pressable
+                                        style={styles.buttonH}
+                                        onPress={() => ('')}
+                                    >
+                                        <Text style={styles.textStyleNo1}>Yes</Text>
+                                    </Pressable>
+
+                                    <Pressable
+                                        style={styles.buttonH}
+                                        onPress={() => setModalOpenn(false)}
+                                    >
+                                        <Text style={styles.textStyleNo1}>No Thanks</Text>
+                                    </Pressable>
+
+                                </View>
+
+
+                            </LinearGradient>
+                        </View>
+
+                    </Modal>
                     <View style={styles.TopHeader}>
                         <TouchableOpacity onPress={() => props.navigation.navigate('faqscreen')}>
                             <Text style={{ fontSize: 20, fontFamily: 'Poppins-Regular', color: "white", alignSelf: "flex-start", margin: 20, }}> FAQ</Text>
@@ -604,26 +687,33 @@ const HomeScreen = (props) => {
                                 style={{ width: (windowWidth - 50), }}
                                 renderItem={({ item, index }) => (
                                     <Pressable
-                                        onPress={() => questionPick(item)}
+                                        onPress={() => {LayoutAnimation.easeInEaseOut(); questionPick(item)}}
                                         style={{ marginTop: 20, width: '100%', padding: 0 }}
                                     >
                                         {press === item.id ?
 
-                                            <TouchableOpacity onPress={() => setPress('')} >
-                                                <View style={{ flexDirection: 'row', justifyContent: 'space-between', alignItems: 'center', backgroundColor: '#0883FB', paddingHorizontal: 10, paddingVertical: 10, height: 76, borderRadius: 18, color: "White", }}>
+                                            <Pressable onPress={() => {LayoutAnimation.easeInEaseOut(); setPress('')}}  >
+                                                <LinearGradient 
+                                                colors={[item.color[0], item.color[1]]}
+                                                style={{ flexDirection: 'row', justifyContent: 'space-between', alignItems: 'center', backgroundColor: '#0883FB', paddingHorizontal: 10, paddingVertical: 10, height: 76,
+                                                borderColor:'white', borderWidth:1.5,
+                                                borderTopLeftRadius:18 , borderTopRightRadius:18 ,borderBottomLeftRadius:10 , borderBottomRightRadius:10 ,color: "White", }}>
+
                                                     <MaterialIcons name='expand-less' size={hp('5%')} color="white" />
                                                     <Text style={{ padding: 5, color: 'white', marginLeft: -20, fontFamily: "Poppins-Regular", fontSize: 16, width: moderateScale(180) }}>{item.title}</Text>
 
                                                     {/* <AntDesign name="caretdown" size={16} color="black"/> */}
 
                                                     <View style={styles.RadioView2}>
-                                                        <View style={onPress == item ? styles.RadioInnerViewNormal : styles.RadioInnerView} >
+                                                        <View style={onPress == item ?  styles.RadioInnerViewNormal : styles.RadioInnerView} >
                                                         </View>
                                                     </View>
-                                                </View>
-                                            </TouchableOpacity>
+                                                </LinearGradient>
+                                            </Pressable>
                                             :
-                                            <View style={{ flexDirection: 'row', justifyContent: 'space-between', alignItems: 'center', backgroundColor: '#0883FB', paddingHorizontal: 10, paddingVertical: 10, height: 76, borderRadius: 18, color: "White", }}>
+                                            <LinearGradient
+                                            colors={[item.color[0], item.color[1]]}
+                                            style={{ flexDirection: 'row', justifyContent: 'space-between', alignItems: 'center', backgroundColor: '#0883FB', paddingHorizontal: 10, paddingVertical: 10, height: 76, borderRadius: 18, color: "White", }}>
                                                 <MaterialIcons name='expand-more' size={hp('5%')} color="white" />
                                                 <View >
                                                     <Text style={{ padding: 5, marginLeft: -20, fontFamily: "Poppins-Regular", color: "white", fontSize: 16, width: moderateScale(180), }}>{item.title}</Text>
@@ -634,16 +724,16 @@ const HomeScreen = (props) => {
                                                     </View>
                                                 </View>
 
-                                            </View>
+                                            </LinearGradient>
                                         }
 
                                         {press === item.id ?
 
-                                            <Pressable onPress={() => setPress('')} style={{ zIndex: -999 }} >
+                                            <Pressable onPress={() =>  {LayoutAnimation.easeInEaseOut(); setPress('')} }  style={{ zIndex: -999 }} >
 
-                                                <Animatable.View style={{}}>
-                                                    <Text style={{ padding: 15, marginHorizontal: 0, top: -12, backgroundColor: "white", color: "#B4B4B4", borderBottomLeftRadius: 18, borderBottomRightRadius: 18, fontSize: 14, fontFamily: "Poppins-Regular", }}>{item.description} </Text>
-                                                </Animatable.View>
+                                                <View style={{}}>
+                                                    <Text style={{ margin: 15,padding:15 , marginHorizontal: 0, marginTop: -10, backgroundColor: "white", color: "#B4B4B4", borderBottomLeftRadius: 18, borderBottomRightRadius: 18, fontSize: 14, fontFamily: "Poppins-Regular", }}>{item.description} </Text>
+                                                </View>
 
 
                                             </Pressable>
@@ -708,7 +798,7 @@ const HomeScreen = (props) => {
                         </Modal>
                     </View>
                     <View style={styles.PrePlainDate}>
-                        <Text style={styles.choosePersonText}> Pre-plan Dates</Text>
+                        <Text style={styles.PrePlanText}> Pre-plan Dates</Text>
 
 
 
@@ -723,7 +813,7 @@ const HomeScreen = (props) => {
                     </View>
 
                     <View style={styles.AddPersonView}>
-                        <Text style={styles.choosePersonText}> Choose Your Date</Text>
+                        <Text style={styles.chooseYourDateText}> Choose Your Date</Text>
                         {/* <TouchableOpacity onPress={() => props.navigation.navigate("addpartnersdetails")}> */}
                         {/* <LinearGradient start={{ x: 0, y: 0 }} end={{ x: 1, y: 0 }}
                                 colors={['#FF7474', '#E20303']}
@@ -925,7 +1015,7 @@ const HomeScreen = (props) => {
                     </ScrollView>
 
                     <View style={{ height: moderateScale(430), backgroundColor: '#4D4D4D' }}>
-                        <Text style={styles.choosePersonText}>   Select Your Ping Frequency</Text>
+                        <Text style={styles.SelectYourPingText}>   Select Your Ping Frequency</Text>
                         <View style={styles.ping}>
                             <TouchableOpacity onPressIn={onPressMius}
                                 onPress={onPree}
@@ -964,59 +1054,68 @@ const HomeScreen = (props) => {
                         </ScrollView>
                     </View>
                     <View style={styles.ScheduleView}>
-                        <Text style={styles.choosePersonText}> Schedule Your Date</Text>
+                        <Text style={styles.chooseDateText}> Schedule Your Date</Text>
+
+                        <Pressable onPress={showDatepicker} >
+                            <View style={styles.sectionStyle2}>
+
+                                <Text
+                                    style={{ color: 'white', fontSize: 16, fontFamily: "Poppins-Regular", marginHorizontal: 20, }}
+                                    onPress={showDatepicker}
+                                >
+                                    {isDateSelected ? `${date.getDate() + ' | ' + date.getMonth() + ' | ' + date.getFullYear()}` : "Select Date"}
+                                </Text>
+                                <View style={{ marginHorizontal: 20, backgroundColor: 'white', height: moderateScale(45), width: moderateScale(45), borderRadius: 55 }}>
+                                    <Image
+                                        source={require('../assets/calendar.png')} //Change your icon image here
+                                        style={styles.imageStyle}
+                                    />
+                                </View>
 
 
-                        <View style={styles.sectionStyle}>
-                            <View style={{ backgroundColor: 'white', height: moderateScale(45), width: moderateScale(45), alignSelf: 'center', left: moderateScale(235), borderRadius: 55 }}>
-                                <Image
-                                    source={require('../assets/calendar.png')} //Change your icon image here
-                                    style={styles.imageStyle}
-                                />
+                                {show && (
+                                    <DateTimePicker
+                                        testID="dateTimePicker"
+                                        value={date}
+                                        mode={mode}
+                                        is24Hour={true}
+                                        display="default"
+                                        onChange={mode == 'date' ? onChange : onChangeTime}
+                                    />
+                                )}
                             </View>
+                        </Pressable>
 
-                            <Text
-                                style={{ flex: 1, color: 'white', fontSize: 16, fontFamily: "Poppins-Regular", marginLeft: -30, }}
-                                onPress={showDatepicker}
-                            >
-                                {isDateSelected ? `${date.getMonth() + ' | ' + date.getDate() + ' | ' + date.getFullYear()}` : "Select Date"}
-                            </Text>
-                            {show && (
-                                <DateTimePicker
-                                    testID="dateTimePicker"
-                                    value={date}
-                                    mode={mode}
-                                    is24Hour={true}
-                                    display="default"
-                                    onChange={mode == 'date' ? onChange : onChangeTime}
-                                />
-                            )}
-                        </View>
-                        <View style={styles.sectionStyle}>
-                            <View style={{ backgroundColor: 'white', height: moderateScale(45), width: moderateScale(45), alignSelf: 'center', left: moderateScale(235), borderRadius: 55 }}>
-                                <Image
-                                    source={require('../assets/time.png')} //Change your icon image here
-                                    style={styles.imageStyle}
-                                />
+                        <Pressable onPress={showTimepicker} >
+                            <View style={styles.sectionStyle2}>
+
+                                <Text
+                                    style={{ color: 'white', fontSize: 16, fontFamily: "Poppins-Regular", marginHorizontal: 10, }}
+
+                                    onPress={showTimepicker}
+
+
+                                >  {isTimeSelected ? `${time.getHours() + ' : ' + time.getMinutes()} ${time.getHours() > 11 ? 'PM' : 'AM'}  ` : "Select Time"} </Text>
+
+
+                                <View style={{ marginHorizontal: 20, backgroundColor: 'white', height: moderateScale(45), width: moderateScale(45), borderRadius: 55 }}>
+                                    <Image
+                                        source={require('../assets/time.png')} //Change your icon image here
+                                        style={styles.imageStyle}
+                                    />
+                                </View>
+
+
                             </View>
-
-                            <Text
-                                style={{ flex: 1, color: 'white', fontSize: 16, fontFamily: "Poppins-Regular", marginLeft: -40, }}
-
-                                onPress={showTimepicker}
-
-
-                            >  {isTimeSelected ? `${time.getHours() + ' : ' + time.getMinutes()} ${time.getHours() > 11 ? 'PM' : 'AM'}  ` : "Select Time"} </Text>
-
-                        </View>
+                        </Pressable>
 
 
 
                         <TouchableOpacity onPress={() => props.navigation.navigate('donefornow')}>
                             <LinearGradient start={{ x: 0, y: 0 }} end={{ x: 1, y: 0 }}
                                 colors={['#FF7474', '#E20303']}
-                                style={styles.linearGradient} >
-                                <Text style={styles.AddButtonText}>
+                                style={styles.linearGradient2} >
+                                <Text style={styles.AddButtonText2}>
                                     Send Invitation
                                 </Text>
                             </LinearGradient>
@@ -1034,6 +1133,51 @@ const HomeScreen = (props) => {
 export default HomeScreen;
 
 const styles = StyleSheet.create({
+    textStyleNo1: {
+        color: "white",
+        fontFamily: 'Poppins-Regular',
+        fontSize: 18,
+        textAlign: "center",
+
+
+    },
+    buttonH: {
+        borderRadius: 10,
+        padding: 10,
+        marginHorizontal: 20
+
+    },
+    modalButtons2: {
+        flexDirection: 'row',
+        justifyContent: 'space-between',
+        marginTop: 0,
+
+
+    },
+    modalText2: {
+        marginBottom: 10,
+        textAlign: "center",
+        fontFamily: 'Poppins-Regular',
+        color: 'white',
+        fontSize: 18
+    },
+    modalViewH: {
+        width: 310,
+        height: 209,
+
+        // backgroundColor: "red",
+        borderRadius: 20,
+        padding: 35,
+        alignItems: "center",
+        shadowColor: "red",
+        shadowOffset: {
+            width: 310,
+            height: 209
+        },
+        shadowOpacity: 0.25,
+        shadowRadius: 4,
+        elevation: 5
+    },
 
 
     status: {
@@ -1241,13 +1385,29 @@ const styles = StyleSheet.create({
 
 
     },
+    sectionStyle2: {
+        flexDirection: 'row',
+        justifyContent: 'space-between',
+        alignItems: 'center',
+        backgroundColor: '#363143',
+        borderRadius: 18,
+
+
+        fontFamily: "Poppins-Regular",
+        fontSize: 16,
+        width: (windowWidth - 70),
+        height: 76,
+
+        margin: 10,
+        alignSelf: "center",
+    },
     sectionStyle: {
         flexDirection: 'row',
         justifyContent: 'center',
         alignItems: 'center',
         backgroundColor: '#363143',
         borderRadius: 18,
-        marginTop: 30,
+        marginTop: 20,
 
         fontFamily: "Poppins-Regular",
         fontSize: 16,
@@ -1314,7 +1474,7 @@ const styles = StyleSheet.create({
         fontFamily: 'Poppins-Bold',
         textAlign: "center",
         marginTop: 27,
-        marginHorizontal:4,
+        marginHorizontal: 4,
 
 
     },
@@ -1359,8 +1519,8 @@ const styles = StyleSheet.create({
         alignSelf: "center",
         fontFamily: "Poppins-Regular",
         textAlign: "center",
-        marginTop: 10,
-        marginHorizontal: 6
+
+
 
     },
 
@@ -1468,6 +1628,16 @@ const styles = StyleSheet.create({
         color: '#FFFF',
 
     },
+    linearGradient2: {
+
+
+        width: windowWidth - 70,
+
+        borderRadius: 16,
+        marginTop: 20,
+        alignSelf: 'center',
+        height: 70,
+    },
     linearGradient: {
 
 
@@ -1481,6 +1651,16 @@ const styles = StyleSheet.create({
     AddCouple: {
         height: 392,
         backgroundColor: '#4D4D4D',
+
+    },
+    AddButtonText2: {
+
+        fontSize: 16,
+        fontFamily: "Poppins-Regular",
+        marginTop: 24,
+        alignSelf: "center",
+        color: '#FFFF',
+
 
     },
     AddButtonText: {
@@ -1514,6 +1694,43 @@ const styles = StyleSheet.create({
         height: 326,
         backgroundColor: 'black',
 
+    },
+    chooseDateText: {
+        marginTop: 40,
+        marginBottom: 20,
+        fontSize: 20,
+        color: "#FFFF",
+        alignSelf: "center",
+        fontFamily: "Poppins-Regular",
+
+
+    },
+    chooseYourDateText: {
+        marginTop: 20,
+
+        fontSize: 20,
+        color: "#FFFF",
+        alignSelf: "center",
+        fontFamily: "Poppins-Regular",
+
+    },
+    PrePlanText: {
+        marginTop: 30,
+        marginBottom: 20,
+
+        fontSize: 20,
+        color: "#FFFF",
+        alignSelf: "center",
+        fontFamily: "Poppins-Regular",
+
+    },
+    SelectYourPingText: {
+        marginTop: 40,
+
+        fontSize: 20,
+        color: "#FFFF",
+        alignSelf: "center",
+        fontFamily: "Poppins-Regular",
     },
     choosePersonText: {
         marginTop: 40,
