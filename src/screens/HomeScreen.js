@@ -169,21 +169,21 @@ const data = [
     },
     {
         id: 2,
-        color: ['#44BEFB', '#44BEFB', ],
+        color: ['#44BEFB', '#44BEFB',],
         title: 'Casual Date Mode',
         description:
             'It may, or may not be an actual "first" date, but its certainly one of the first...a "get-to-know" Kind of date.You will need ice-breakers. ',
     },
     {
         id: 3,
-        color: ['#0883FB', '#0883FB', ],
+        color: ['#0883FB', '#0883FB',],
         title: 'Exclusive Date Mode',
         description:
             'It may, or may not be an actual "first" date, but its certainly one of the first...a "get-to-know" Kind of date.You will need ice-breakers. ',
     },
     {
         id: 4,
-        color: ['#0149FF', '#0149FF', ],
+        color: ['#0149FF', '#0149FF',],
         title: 'Married Date Mode',
         description:
             'It may, or may not be an actual "first" date, but its certainly one of the first...a "get-to-know" Kind of date.You will need ice-breakers. ',
@@ -687,17 +687,19 @@ const HomeScreen = (props) => {
                                 style={{ width: (windowWidth - 50), }}
                                 renderItem={({ item, index }) => (
                                     <Pressable
-                                        onPress={() => {LayoutAnimation.easeInEaseOut(); questionPick(item)}}
+                                        onPress={() => { LayoutAnimation.easeInEaseOut(); questionPick(item) }}
                                         style={{ marginTop: 20, width: '100%', padding: 0 }}
                                     >
                                         {press === item.id ?
 
-                                            <Pressable onPress={() => {LayoutAnimation.easeInEaseOut(); setPress('')}}  >
-                                                <LinearGradient 
-                                                colors={[item.color[0], item.color[1]]}
-                                                style={{ flexDirection: 'row', justifyContent: 'space-between', alignItems: 'center', backgroundColor: '#0883FB', paddingHorizontal: 10, paddingVertical: 10, height: 76,
-                                                borderColor:'white', borderWidth:1.5,
-                                                borderTopLeftRadius:18 , borderTopRightRadius:18 ,borderBottomLeftRadius:10 , borderBottomRightRadius:10 ,color: "White", }}>
+                                            <Pressable onPress={() => { LayoutAnimation.easeInEaseOut(); setPress('') }}  >
+                                                <LinearGradient
+                                                    colors={[item.color[0], item.color[1]]}
+                                                    style={{
+                                                        flexDirection: 'row', justifyContent: 'space-between', alignItems: 'center', backgroundColor: '#0883FB', paddingHorizontal: 10, paddingVertical: 10, height: 76,
+                                                        borderColor: 'white', borderWidth: 1.5,
+                                                        borderTopLeftRadius: 18, borderTopRightRadius: 18, borderBottomLeftRadius: 10, borderBottomRightRadius: 10, color: "White",
+                                                    }}>
 
                                                     <MaterialIcons name='expand-less' size={hp('5%')} color="white" />
                                                     <Text style={{ padding: 5, color: 'white', marginLeft: -20, fontFamily: "Poppins-Regular", fontSize: 16, width: moderateScale(180) }}>{item.title}</Text>
@@ -705,15 +707,15 @@ const HomeScreen = (props) => {
                                                     {/* <AntDesign name="caretdown" size={16} color="black"/> */}
 
                                                     <View style={styles.RadioView2}>
-                                                        <View style={onPress == item ?  styles.RadioInnerViewNormal : styles.RadioInnerView} >
+                                                        <View style={onPress == item ? styles.RadioInnerViewNormal : styles.RadioInnerView} >
                                                         </View>
                                                     </View>
                                                 </LinearGradient>
                                             </Pressable>
                                             :
                                             <LinearGradient
-                                            colors={[item.color[0], item.color[1]]}
-                                            style={{ flexDirection: 'row', justifyContent: 'space-between', alignItems: 'center', backgroundColor: '#0883FB', paddingHorizontal: 10, paddingVertical: 10, height: 76, borderRadius: 18, color: "White", }}>
+                                                colors={[item.color[0], item.color[1]]}
+                                                style={{ flexDirection: 'row', justifyContent: 'space-between', alignItems: 'center', backgroundColor: '#0883FB', paddingHorizontal: 10, paddingVertical: 10, height: 76, borderRadius: 18, color: "White", }}>
                                                 <MaterialIcons name='expand-more' size={hp('5%')} color="white" />
                                                 <View >
                                                     <Text style={{ padding: 5, marginLeft: -20, fontFamily: "Poppins-Regular", color: "white", fontSize: 16, width: moderateScale(180), }}>{item.title}</Text>
@@ -729,10 +731,10 @@ const HomeScreen = (props) => {
 
                                         {press === item.id ?
 
-                                            <Pressable onPress={() =>  {LayoutAnimation.easeInEaseOut(); setPress('')} }  style={{ zIndex: -999 }} >
+                                            <Pressable onPress={() => { LayoutAnimation.easeInEaseOut(); setPress('') }} style={{ zIndex: -999 }} >
 
                                                 <View style={{}}>
-                                                    <Text style={{ margin: 15,padding:15 , marginHorizontal: 0, marginTop: -10, backgroundColor: "white", color: "#B4B4B4", borderBottomLeftRadius: 18, borderBottomRightRadius: 18, fontSize: 14, fontFamily: "Poppins-Regular", }}>{item.description} </Text>
+                                                    <Text style={{ margin: 15, padding: 15, marginHorizontal: 0, marginTop: -10, backgroundColor: "white", color: "#B4B4B4", borderBottomLeftRadius: 18, borderBottomRightRadius: 18, fontSize: 14, fontFamily: "Poppins-Regular", }}>{item.description} </Text>
                                                 </View>
 
 
