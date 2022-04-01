@@ -11,7 +11,8 @@ import {
     TouchableOpacity,
     Switch,
     ScrollView,
-    FlatList
+    FlatList,
+    SafeAreaView
 } from 'react-native';
 
 import LinearGradient from 'react-native-linear-gradient';
@@ -160,7 +161,7 @@ export default function SignupScreen(props) {
 
 
                     <Text style={styles.profileText}>Profile Background color</Text>
-
+                    <SafeAreaView style={{flex: 1}}>
                     <FlatList
                         horizontal={true}
                         data={COLORS}
@@ -201,6 +202,7 @@ export default function SignupScreen(props) {
 
                         )}
                     />
+                    </SafeAreaView>
 
 
 

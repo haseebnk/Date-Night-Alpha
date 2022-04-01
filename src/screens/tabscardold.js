@@ -219,6 +219,11 @@ function TabA() {
             }
         })
     }
+
+
+
+
+
     const Item = ({ title, isEnabled, setIsEnabled, Id, index }) => {
 
         //    const toggleSwitch = () => {
@@ -270,7 +275,7 @@ function TabA() {
                     />
 
                     <Text style={{ color: 'white', fontSize: 15, position: 'absolute', bottom: 2, left: 4 }}> Y</Text>
-                    <Text style={{ color: !isEnabled ? 'white' : 'black', fontSize: 15, fontFamily: 'Poppins-Regular', position: 'absolute', bottom: -2, right: 6 }}>N</Text>
+                    <Text style={{ color: !isEnabled ? 'white' : 'black', fontSize: 15, fontFamily: 'Poppins-Regular', position: 'absolute', bottom: -1, right: 7 }}>N</Text>
                 </TouchableOpacity>
 
 
@@ -326,13 +331,14 @@ function TabA() {
                     <View style={{ height: 1000, width: windowWidth, marginTop: 30, }}>
 
 
-
+                    <SafeAreaView style={{flex: 1}}>
                         <FlatList
                             nestedScrollEnabled={true}
                             data={mainData}
                             renderItem={(item, i) => renderItem(item, i)}
-                            keyExtractor={items => items.id}
+                            keyExtractor={items => items.Id}
                         />
+                        </SafeAreaView>
                     </View>
 
                 </ScrollView>
@@ -425,34 +431,34 @@ function TabB() {
                     </SafeAreaView>
 
                     <TouchableOpacity onPress={() => checked ? setChecked(false) : setChecked(true)}>
-                     
-                            <View style={styles.placeView2}>
+
+                        <View style={styles.placeView2}>
 
 
-                                <View style={{ flexDirection: 'row', justifyContent: 'space-between', top: -5 }}>
+                            <View style={{ flexDirection: 'row', justifyContent: 'space-between', top: -5 }}>
 
-                                    <TouchableOpacity onPress={() => checked ? setChecked(false) : setChecked(true)}
-                                        style={{ top: 30, left: 20, height: 25, width: 25, borderRadius: 20, backgroundColor: checked ? '#00B712' : 'white', borderWidth: 4, borderColor: 'white' }} >
+                                <TouchableOpacity onPress={() => checked ? setChecked(false) : setChecked(true)}
+                                    style={{ top: 30, left: 20, height: 25, width: 25, borderRadius: 20, backgroundColor: checked ? '#00B712' : 'white', borderWidth: 4, borderColor: 'white' }} >
 
-                                    </TouchableOpacity>
+                                </TouchableOpacity>
 
-                                    <View style={{ flexDirection: 'row', width: 150, justifyContent: 'space-between', marginTop: 25, marginRight: 20 }} >
-                                        <View style={{ top: 4 }}>{renderPlace()}</View>
-                                        <View style={{ backgroundColor: 'white', height: 30, width: 30, borderRadius: 50, }}>
-                                            <Image style={{ alignSelf: 'center', top: 8 }} source={(require('../assets/place1.png'))}></Image>
-                                        </View>
-                                        <View style={{ backgroundColor: 'white', height: 30, width: 30, borderRadius: 50 }}>
-                                            <Image style={{ alignSelf: 'center', top: 8 }} source={(require('../assets/place2.png'))}></Image>
-                                        </View>
-                                        <View style={{ backgroundColor: 'white', height: 30, width: 30, borderRadius: 50, }}>
-                                            <Image style={{ alignSelf: 'center', top: 8 }} source={(require('../assets/place3.png'))}></Image>
-                                        </View>
+                                <View style={{ flexDirection: 'row', width: 150, justifyContent: 'space-between', marginTop: 25, marginRight: 20 }} >
+                                    <View style={{ top: 4 }}>{renderPlace()}</View>
+                                    <View style={{ backgroundColor: 'white', height: 30, width: 30, borderRadius: 50, }}>
+                                        <Image style={{ alignSelf: 'center', top: 8 }} source={(require('../assets/place1.png'))}></Image>
                                     </View>
-
+                                    <View style={{ backgroundColor: 'white', height: 30, width: 30, borderRadius: 50 }}>
+                                        <Image style={{ alignSelf: 'center', top: 8 }} source={(require('../assets/place2.png'))}></Image>
+                                    </View>
+                                    <View style={{ backgroundColor: 'white', height: 30, width: 30, borderRadius: 50, }}>
+                                        <Image style={{ alignSelf: 'center', top: 8 }} source={(require('../assets/place3.png'))}></Image>
+                                    </View>
                                 </View>
 
                             </View>
-                        </TouchableOpacity>
+
+                        </View>
+                    </TouchableOpacity>
                 </ScrollView>
 
             </View>
@@ -535,9 +541,9 @@ function TabC() {
 
                 </View>
 
-              
-                    <SafeAreaView style={styles.container}>
-                        {/* 
+
+                <SafeAreaView style={styles.container}>
+                    {/* 
                         <FlatList
 
                             data={DATA}
@@ -546,8 +552,8 @@ function TabC() {
 
 
                         /> */}
-                    </SafeAreaView>
-                    <ScrollView nestedScrollEnabled={true}>
+                </SafeAreaView>
+                <ScrollView nestedScrollEnabled={true}>
                     <View style={{ height: 800, }}>
                         <TouchableOpacity onPress={() => checkes ? setCheckes(false) : setCheckes(true)}>
                             <View style={styles.placeViewc}>
@@ -588,7 +594,7 @@ function TabC() {
                                 </View>
                             </View>
                         </TouchableOpacity>
-                        <View style={{height:1,width:270, borderColor:'white', borderWidth:.2, borderRadius:.1 ,marginVertical:5, alignSelf:'center'}}></View>
+                        <View style={{ height: 1, width: 270, borderColor: 'white', borderWidth: .2, borderRadius: .1, marginVertical: 5, alignSelf: 'center' }}></View>
                         <TouchableOpacity onPress={() => checked ? setChecked(false) : setChecked(true)}>
                             <View style={styles.placeView2}>
 
@@ -647,8 +653,8 @@ function TabC() {
                             </View>
                         </TouchableOpacity>
                     </View>
-                      </ScrollView>
-              
+                </ScrollView>
+
 
             </View>
         </View>
@@ -663,8 +669,12 @@ class ReactNavigationBottomTabs extends Component {
         return (
             <Tab.Navigator
 
+            
                 screenOptions={
                     {
+
+                        tabBarActiveTintColor:  '#363143',
+                        tabBarInactiveTintColor: '#363143',
 
                         tabBarStyle: {
                             marginBottom: 50, width: moderateScale(windowWidth - 61, 0.1), height: 100, marginHorizontal: 30, backgroundColor: '#363143',
@@ -674,21 +684,23 @@ class ReactNavigationBottomTabs extends Component {
                         }
                     }
                 }
-                tabBarOptions={
+
+               
+                // tabBarOptions={
 
 
 
-                    {
+                //     {
 
 
-                        // Default Color is blue you can change it by following props
-                        activeTintColor: '#363143',
-                        inactiveTintColor: '#363143',
-                        // Default Background Color is white you can change it by following props
+                //         // Default Color is blue you can change it by following props
+                //         activeTintColor: '#363143',
+                //         inactiveTintColor: '#363143',
+                //         // Default Background Color is white you can change it by following props
 
-                    }
+                //     }
 
-                }
+                // }
 
 
             >

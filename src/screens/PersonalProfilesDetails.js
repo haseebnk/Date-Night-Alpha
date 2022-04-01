@@ -11,7 +11,8 @@ import {
     TouchableOpacity,
     Switch,
     ScrollView,
-    FlatList
+    FlatList,
+    SafeAreaView
 } from 'react-native';
 import LinearGradient from 'react-native-linear-gradient';
 import { moderateScale } from 'react-native-size-matters';
@@ -165,7 +166,7 @@ export default function PersonalProfileDetails(props) {
 
                     <Text style={styles.profileText}>Profile Background Color</Text>
 
-
+                    <SafeAreaView style={{flex: 1}}>
                     <FlatList
                         horizontal={true}
                         data={COLORS}
@@ -206,6 +207,7 @@ export default function PersonalProfileDetails(props) {
 
                         )}
                     />
+                    </SafeAreaView>
 
 
                     <Text style={styles.ReminderText}>Reminders</Text>

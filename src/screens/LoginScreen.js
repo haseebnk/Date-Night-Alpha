@@ -123,7 +123,7 @@ export default function LoginScreen2(props) {
                 {/* <TouchableOpacity style={styles.loginButton}>
           <Text style={styles.loginButtonText}>Sign in</Text>
         </TouchableOpacity> */}
-                <TouchableOpacity onPress={() => props.navigation.navigate("home")}>
+                <TouchableOpacity onPress={() => props.navigation.navigate("indicator")}>
                     <LinearGradient start={{ x: 0, y: 0 }} end={{ x: 1, y: 0 }}
                         colors={['#FF7474', '#E20303']}
                         style={styles.linearGradient} >

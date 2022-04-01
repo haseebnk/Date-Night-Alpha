@@ -11,7 +11,8 @@ import {
     TouchableOpacity,
     Switch,
     ScrollView,
-    FlatList
+    FlatList,
+    SafeAreaView
 } from 'react-native';
 import LinearGradient from 'react-native-linear-gradient';
 // import SplashScreen from 'react-native-splash-screen';
@@ -165,7 +166,7 @@ export default function AddAnotherCouple(props) {
 
                     <Text style={styles.profileText}>Profile Background Color</Text>
 
-
+                    <SafeAreaView style={{flex: 1}}>
                     <FlatList
                         horizontal={true}
                         data={COLORS}
@@ -206,6 +207,7 @@ export default function AddAnotherCouple(props) {
 
                         )}
                     />
+                    </SafeAreaView>
 
                     <LinearGradient
                         start={{ x: 0, y: 0 }} end={{ x: 1, y: 0 }}

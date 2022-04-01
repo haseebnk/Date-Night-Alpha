@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import { View, Text, FlatList, TouchableOpacity, StyleSheet, Image, Animated ,Modal , LayoutAnimation,
     Platform,
-    UIManager, } from 'react-native';
+    UIManager, SafeAreaView} from 'react-native';
 import { widthPercentageToDP as wp, heightPercentageToDP as hp } from 'react-native-responsive-screen';
 import MaterialIcons from 'react-native-vector-icons/MaterialIcons';
 import LinearGradient from 'react-native-linear-gradient';
@@ -63,19 +63,25 @@ const FAQScreen = (props) => {
                         <Text style={styles.faqHeading}>FAQ</Text>
                     </View>
 
-
+                    <SafeAreaView   style={{  width: '90%' , alignSelf:'center'}}>
                     <FlatList
+                    
+                    nestedScrollEnabled
+                   
+                    ListEmptyComponent={null}
+                    ListFooterComponent={null}
+                    ListHeaderComponent={null}
                         data={data}
                         keyExtractor={(item, index) => index.toString()}
-                        style={{ width: '90%' }}
+                        style={{ width: '100%' }}
                         renderItem={({ item, index }) => (
                             <TouchableOpacity
                                 onPress={() =>   {LayoutAnimation.easeInEaseOut(); questionPick(item)} }
-                                style={{ marginTop: 20, width: '100%', padding: 3 }}
+                                style={{ marginTop: 20, width: '100%', padding: 0 }}
                             >
                                 {press === item.id ?
                                     <TouchableOpacity onPress={() =>  {LayoutAnimation.easeInEaseOut();  setPress('')} } >
-                                    <View style={{ flexDirection: 'row', alignItems: 'center', backgroundColor: '#363143', paddingHorizontal: 10, paddingVertical: 10, height: 76, borderRadius: 18, color: "White" }}>
+                                    <View style={{ borderColor:'white',borderWidth:.7 , flexDirection: 'row', alignItems: 'center', backgroundColor: '#363143', paddingHorizontal: 10, paddingVertical: 10, height: 76, borderRadius: 18, color: "White" }}>
                                         <MaterialIcons name='expand-less' size={hp('5%')} color="white" />
                                         <Text style={{ color: 'white', fontFamily: "Poppins-Regular", fontSize: 16 }}>{item.title}</Text>
                                         {/* <AntDesign name="caretdown" size={16} color="black"/> */}
@@ -96,9 +102,9 @@ const FAQScreen = (props) => {
 
                                 {press === item.id ?
 
-                                    <TouchableOpacity onPress={() =>  {LayoutAnimation.easeInEaseOut(); setPress('')} } >
+                                    <TouchableOpacity onPress={() => { LayoutAnimation.easeInEaseOut(); setPress('') }} style={{ zIndex: -999 }} >
 
-                                        <Text style={{ padding: 15, marginHorizontal: 0, top: -10, backgroundColor: "white", color: "#B4B4B4", borderBottomLeftRadius: 18, borderBottomRightRadius: 18, fontSize: 14, fontFamily: "Poppins-Regular", }}>{item.description} </Text>
+                                        <Text style={{ padding: 15, marginHorizontal: 0, marginTop: -15, backgroundColor: "white", color: "#B4B4B4", borderBottomLeftRadius: 18, borderBottomRightRadius: 18, fontSize: 14, fontFamily: "Poppins-Regular", }}>{item.description} </Text>
 
                                     </TouchableOpacity>
 
@@ -110,6 +116,7 @@ const FAQScreen = (props) => {
 
                         )}
                     />
+                    </SafeAreaView>
                 </View>
             </View>
 

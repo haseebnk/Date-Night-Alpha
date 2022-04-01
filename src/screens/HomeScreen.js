@@ -116,38 +116,38 @@ const PreData = [
         id: 2,
         title: 'Pre-Plan',
         description:
-            'Date 01',
+            'Date 02',
     },
     {
         id: 3,
         title: 'Pre-Plan',
         description:
-            'Date 01',
+            'Date 03',
     },
 
     {
         id: 4,
         title: 'Pre-Plan',
         description:
-            'Date 01',
+            'Date 04',
     },
     {
         id: 5,
         title: 'Pre-Plan',
         description:
-            'Date 01',
+            'Date 05',
     },
     {
         id: 6,
         title: 'Pre-Plan',
         description:
-            'Date 01',
+            'Date 06',
     },
     {
         id: 7,
         title: 'Pre-Plan',
         description:
-            'Date 01',
+            'Date 07',
     },
 ]
 
@@ -165,14 +165,14 @@ const data = [
         color: ['#80D3FC', '#80D3FC',],
         title: 'First Date Mode',
         description:
-            'It may, or may not be an actual "first" date, but its certainly one of the first...a "get-to-know" Kind of date.You will need ice-breakers. ',
+            'It may, or may not  an actual "first" date, but its certainly one of the first...a "get-to-know" Kind of date.You will need ice-breakers. ',
     },
     {
         id: 2,
         color: ['#44BEFB', '#44BEFB',],
         title: 'Casual Date Mode',
         description:
-            'It may, or may not be an actual "first" date, but its certainly one of the first...a "get-to-know" Kind of date.You will need ice-breakers. ',
+            'It may, or  not be an actual "first" date, but its certainly one of the first...a "get-to-know" Kind of date.You will need ice-breakers. ',
     },
     {
         id: 3,
@@ -186,7 +186,7 @@ const data = [
         color: ['#0149FF', '#0149FF',],
         title: 'Married Date Mode',
         description:
-            'It may, or may not be an actual "first" date, but its certainly one of the first...a "get-to-know" Kind of date.You will need ice-breakers. ',
+            'It may,  may not be an actual "first" date, but its certainly one of the first...a "get-to-know" Kind of date.You will need ice-breakers. ',
     },
 ];
 
@@ -201,35 +201,35 @@ const Pings = [
         selected: true,
     },
     {
-        id: "Item 1",
+        id: "Item 2",
         type: "unlock",
         text: " Compliment your date ",
         Description: "Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum.",
         selected: true,
     },
     {
-        id: "Item 2",
+        id: "Item 3",
         type: "unlock",
         text: "Truth and dare",
         Description: "Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum.",
         selected: false,
     },
     {
-        id: "Item 1",
+        id: "Item 4",
         type: "unlock",
         text: " Compliment your date ",
         Description: "Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum.",
         selected: false,
     },
     {
-        id: "Item 2",
+        id: "Item 5",
         type: "lock",
         text: " Compliment your date ",
         Description: "Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum.",
         selected: false,
     },
     {
-        id: "Item 1",
+        id: "Item 6",
         type: "lock",
         text: " Compliment your date ",
         Description: "Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum.",
@@ -363,54 +363,54 @@ const HomeScreen = (props) => {
     const onPress = () => setCount(count + 5);
     const onPree = () => setCount(count - 5);
 
-    // Default active selector
-    const [activeSections, setActiveSections] = useState([]);
-    // Collapsed condition for the single collapsible
-    const [collapsed, setCollapsed] = useState(true);
-    // MultipleSelect is for the Multiple Expand allowed
-    // True: Expand multiple at a time
-    // False: One can be expand at a time
-    const [multipleSelect, setMultipleSelect] = useState(false);
+    // // Default active selector
+    // const [activeSections, setActiveSections] = useState([]);
+    // // Collapsed condition for the single collapsible
+    // const [collapsed, setCollapsed] = useState(true);
+    // // MultipleSelect is for the Multiple Expand allowed
+    // // True: Expand multiple at a time
+    // // False: One can be expand at a time
+    // const [multipleSelect, setMultipleSelect] = useState(false);
 
-    const toggleExpanded = () => {
-        // Toggling the state of single Collapsible
-        setCollapsed(!collapsed);
-    };
+    // const toggleExpanded = () => {
+    //     // Toggling the state of single Collapsible
+    //     setCollapsed(!collapsed);
+    // };
 
-    const setSections = (sections) => {
-        // Setting up a active section state
-        setActiveSections(
-            sections.includes(undefined) ? [] : sections
-        );
-    };
+    // const setSections = (sections) => {
+    //     // Setting up a active section state
+    //     setActiveSections(
+    //         sections.includes(undefined) ? [] : sections
+    //     );
+    // };
 
-    const renderHeader = (section, _, isActive) => {
-        // Accordion header view
-        return (
+    // const renderHeader = (section, _, isActive) => {
+    //     // Accordion header view
+    //     return (
 
-            <View style={{ height: 100, }} >
-                <LinearGradient start={{ x: 0, y: 0 }} end={{ x: 1, y: 0 }}
-                    colors={['#399ADA', '#0883FB']}
-                    style={styles.header} >
-                    <Animatable.View
+    //         <View style={{ height: 100, }} >
+    //             <LinearGradient start={{ x: 0, y: 0 }} end={{ x: 1, y: 0 }}
+    //                 colors={['#399ADA', '#0883FB']}
+    //                 style={styles.header} >
+    //                 <Animatable.View
 
-                        duration={400}
+    //                     duration={400}
 
-                        transition="backgroundColor">
+    //                     transition="backgroundColor">
 
-                        <Text style={styles.headerText}>
-                            {section.title}
-                        </Text>
-
-
-                    </Animatable.View>
-                </LinearGradient >
-
-            </View>
+    //                     <Text style={styles.headerText}>
+    //                         {section.title}
+    //                     </Text>
 
 
-        );
-    };
+    //                 </Animatable.View>
+    //             </LinearGradient >
+
+    //         </View>
+
+
+    //     );
+    // };
 
 
     const [modalOpen, setModalOpen] = useState(false);
@@ -549,29 +549,29 @@ const HomeScreen = (props) => {
 
 
 
-    const renderContent = (section, _, isActive) => {
-        // Accordion Content view
-        return (
+    // const renderContent = (section, _, isActive) => {
+    //     // Accordion Content view
+    //     return (
 
-            <Animatable.View
-                duration={400}
-                style={[
-                    styles.contentHead,
-                    isActive ? styles.inactive : styles.inactive
-                ]}
-                transition="backgroundColor">
+    //         <Animatable.View
+    //             duration={400}
+    //             style={[
+    //                 styles.contentHead,
+    //                 isActive ? styles.inactive : styles.inactive
+    //             ]}
+    //             transition="backgroundColor">
 
 
 
-                <Animatable.Text
-                    animation={isActive ? '' : undefined}
-                    style={{ textAlign: 'center', margin: 8, }}>
-                    {section.content}
-                </Animatable.Text>
+    //             <Animatable.Text
+    //                 animation={isActive ? '' : undefined}
+    //                 style={{ textAlign: 'center', margin: 8, }}>
+    //                 {section.content}
+    //             </Animatable.Text>
 
-            </Animatable.View>
-        );
-    };
+    //         </Animatable.View>
+    //     );
+    // };
 
 
     // const [menuToggled, setmenuToggled] = (useState())
@@ -680,8 +680,14 @@ const HomeScreen = (props) => {
                                 <Text style={styles.ModeHeading}>choose Your Mode</Text>
                             </View>
 
-
+                            <SafeAreaView style={{flex: 1}}>
                             <FlatList
+                          
+                            nestedScrollEnabled
+                            ListEmptyComponent={null}
+                            ListFooterComponent={null}
+                            ListHeaderComponent={null}
+                            
                                 data={data}
                                 keyExtractor={(item, index) => index.toString()}
                                 style={{ width: (windowWidth - 50), }}
@@ -747,6 +753,7 @@ const HomeScreen = (props) => {
 
                                 )}
                             />
+                              </SafeAreaView>
                         </View>
                     </View>
 

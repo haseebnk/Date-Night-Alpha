@@ -21,7 +21,7 @@ import DateMode from './src/screens/DateMode';
 
 import CoupleCard from './src/components/CoupleCard';
 
-
+import ActiveIndicator from './src/screens/ActiveIndicator';
 
 
 const Stack = createNativeStackNavigator();
@@ -47,6 +47,7 @@ function MyStack() {
         <Stack.Screen name="datemode" options={{ headerShown: false }} component={DateMode} />
         {/* <Stack.Screen name="modal" options={{ headerShown: false }} component={ModalEg} /> */}
         <Stack.Screen name="couplecard" options={{ headerShown: false }} component={CoupleCard} />
+        <Stack.Screen name="indicator" options={{ headerShown: false }} component={ActiveIndicator} />
 
 
     </Stack.Navigator>  
