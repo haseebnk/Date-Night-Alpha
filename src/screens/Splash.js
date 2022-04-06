@@ -34,7 +34,7 @@ export default function Splashing(props) {
   useEffect(() => {
     setTimeout(() => { fadeIn() }, 1000)
     setTimeout(() => { fadeInUp() }, 1000)
-    // setTimeout(() => props.navigation.navigate("slider") , 2000);
+    setTimeout(() => props.navigation.navigate("slider") , 2000);
   }, []);
 
   const fadeAnim = useRef(new Animated.Value(-130)).current;
@@ -54,7 +54,7 @@ export default function Splashing(props) {
   const fadeInUp = () => {
     // Will change fadeAnim value to 1 in 5 seconds
     Animated.timing(fadeAnimUp, {
-      toValue: -1,
+      toValue: 1,
       duration: 1000,
       useNativeDriver:true
 
@@ -71,9 +71,9 @@ export default function Splashing(props) {
 
 
         <Animated.View style={{ translateY: fadeAnim }}>
-          <Animatable.Text delay={1000} style={styles.welcome} animation="slideInDown"  >welcome to</Animatable.Text>
-          <Animatable.Text delay={1000} style={styles.datenight} animation="slideInDown">Date Night</Animatable.Text>
-          <Animatable.Text delay={1000} style={styles.datingText} animation="slideInDown" >Dating just got fun again!</Animatable.Text>
+          <Animatable.Text delay={1500} style={styles.welcome} animation="slideInDown"  >welcome to</Animatable.Text>
+          <Animatable.Text delay={1500} style={styles.datenight} animation="slideInDown">Date Night</Animatable.Text>
+          <Animatable.Text delay={1500} style={styles.datingText} animation="slideInDown" >Dating just got fun again!</Animatable.Text>
         </Animated.View>
 
 
@@ -85,12 +85,12 @@ export default function Splashing(props) {
 
 
         <Animated.View style={{ translateY: fadeAnimUp }}>
-          <Animatable.Text style={styles.getStarted} animation="slideInUp" >Get started in just</Animatable.Text>
-          <Animatable.Text style={styles.steps} animation="slideInUp"  ><Animatable.Text animation="slideInUp" style={{
+          <Animatable.Text delay={1500} style={styles.getStarted} animation="slideInUp" >Get started in just</Animatable.Text>
+          <Animatable.Text delay={1500} style={styles.steps} animation="slideInUp"  ><Animatable.Text animation="slideInUp" style={{
             color: 'red',
             fontSize: 25,
             fontFamily: 'Poppins',
-          }}>4</Animatable.Text> simple steps...</Animatable.Text>
+          }}>4</Animatable.Text > simple steps...</Animatable.Text>
         </Animated.View>
       </View>
 
@@ -101,10 +101,10 @@ export default function Splashing(props) {
 
 const styles = StyleSheet.create({
   img: {
-    width: moderateScale(170),
-    height: moderateScale(170),
-    marginTop: moderateScale(180),
-    marginBottom: moderateScale(180),
+    width: moderateScale(150),
+    height: moderateScale(150),
+    marginTop: moderateScale(120),
+    marginBottom: moderateScale(100),
     alignSelf: "center",
     resizeMode: 'contain'
 
@@ -134,8 +134,8 @@ const styles = StyleSheet.create({
   container: {
     flex: 1,
     backgroundColor: "black",
-    paddingBottom:moderateScale(10),
-    paddingTop:moderateScale(10),
+    paddingBottom:moderateScale(50),
+    paddingTop:moderateScale(20),
 
 
 

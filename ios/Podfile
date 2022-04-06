@@ -24,6 +24,8 @@ target 'datenight' do
 
   pod 'react-native-geolocation-service', :path => '../node_modules/react-native-geolocation-service'
 
+  pod 'react-native-splash-screen', :path => '../node_modules/react-native-splash-screen'
+
   target 'datenightTests' do
     inherit! :complete
     # Pods for testing

@@ -831,6 +831,9 @@ const HomeScreen = (props) => {
                                     Add New Person
                                 </Text>
                             </LinearGradient> */}
+                            <TouchableOpacity onPress={()=> props.navigation.navigate("addcouple")}>
+                            <Text style={{ bottom:-7,fontSize:12, color:'white' , alignSelf:'flex-end' , marginRight:45 , fontFamily :'Poppins-Regular'}}>Add New +</Text>
+                            </TouchableOpacity>
                         <CoupleCard></CoupleCard>
                         {/* </TouchableOpacity> */}
                     </View>
@@ -1700,7 +1703,7 @@ const styles = StyleSheet.create({
     },
     AddPersonView: {
         marginTop: 20,
-        height: 326,
+        height: 310,
         backgroundColor: 'black',
 
     },
@@ -1715,7 +1718,7 @@ const styles = StyleSheet.create({
 
     },
     chooseYourDateText: {
-        marginTop: 20,
+        marginTop: 10,
 
         fontSize: 20,
         color: "#FFFF",
