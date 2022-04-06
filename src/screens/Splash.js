@@ -20,6 +20,7 @@ import LinearGradient from 'react-native-linear-gradient';
 import * as Animatable from 'react-native-animatable';
 import { transform } from 'lodash';
 import { moderateScale } from 'react-native-size-matters';
+import SplashScreen from 'react-native-splash-screen';
 
 if (Platform.OS === 'android') {
   if (UIManager.setLayoutAnimationEnabledExperimental) {
@@ -32,6 +33,7 @@ export default function Splashing(props) {
 
 
   useEffect(() => {
+    SplashScreen.hide()
     setTimeout(() => { fadeIn() }, 1000)
     setTimeout(() => { fadeInUp() }, 1000)
     setTimeout(() => props.navigation.navigate("slider") , 2000);
@@ -101,17 +103,18 @@ export default function Splashing(props) {
 
 const styles = StyleSheet.create({
   img: {
-    width: moderateScale(150),
-    height: moderateScale(150),
-    marginTop: moderateScale(120),
-    marginBottom: moderateScale(100),
+    width: moderateScale(180),
+    height: moderateScale(180),
+    marginTop: moderateScale(100),
+    marginBottom: moderateScale(120),
     alignSelf: "center",
-    resizeMode: 'contain'
+    resizeMode: 'contain',
 
+   
   },
   steps: {
     color: 'white',
-    fontSize: 20,
+    fontSize: 17,
     fontFamily: 'Poppins',
 
     // marginTop: 180,
@@ -124,7 +127,7 @@ const styles = StyleSheet.create({
   getStarted: {
     color: 'white',
     fontFamily: 'Poppins',
-    fontSize: 20,
+    fontSize: 17,
 
     // marginBottom: -230,
     alignSelf: "center",
@@ -134,9 +137,16 @@ const styles = StyleSheet.create({
   container: {
     flex: 1,
     backgroundColor: "black",
-    paddingBottom:moderateScale(50),
-    paddingTop:moderateScale(20),
-
+    // paddingBottom:moderateScale(50),
+    // paddingTop:moderateScale(0),
+  position: "absolute",
+    top: -45,
+    left: 0,
+    right: 0,
+    bottom: 0,
+    justifyContent: "center",
+    alignItems: "center",
+   
 
 
   },
@@ -144,7 +154,7 @@ const styles = StyleSheet.create({
     color: 'white',
     fontFamily: "Poppins-Regular",
 
-    fontSize: 20,
+    fontSize: 17,
 
     alignSelf: "center",
     alignContent: "center",
@@ -153,7 +163,7 @@ const styles = StyleSheet.create({
   },
   datenight: {
     color: '#FF2B25',
-    fontSize: 53,
+    fontSize: 43,
 
     fontFamily: "Poppins-Bold",
 
@@ -164,7 +174,7 @@ const styles = StyleSheet.create({
   },
   datingText: {
     color: '#A5A5A5',
-    fontSize: 20,
+    fontSize: 17,
     fontFamily: "Poppins",
 
     alignSelf: "center",

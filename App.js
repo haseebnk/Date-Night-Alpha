@@ -23,6 +23,7 @@ import CoupleCard from './src/components/CoupleCard';
 
 import ActiveIndicator from './src/screens/ActiveIndicator';
 
+import SplashScreen from "react-native-splash-screen"
 
 const Stack = createNativeStackNavigator();
 

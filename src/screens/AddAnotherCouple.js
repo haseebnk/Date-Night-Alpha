@@ -321,7 +321,7 @@ const styles = StyleSheet.create({
     linearGradient: {
 
         marginTop: 30,
-        width: 350,
+        width: 300,
         paddingVertical: 12,
         borderRadius: 11,
 
