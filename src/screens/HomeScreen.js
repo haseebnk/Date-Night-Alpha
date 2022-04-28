@@ -360,8 +360,11 @@ const HomeScreen = (props) => {
         }).start();
     };
 
-    const onPress = () => setCount(count + 5);
-    const onPree = () => setCount(count - 5);
+
+
+  
+    const onPress = () => {setCount(count + 5)};
+    const onPree = () => { do {setCount(count-5)} while(count === 0 )  };
 
     // // Default active selector
     // const [activeSections, setActiveSections] = useState([]);
